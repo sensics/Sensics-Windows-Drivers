@@ -31,5 +31,3 @@ RequestExecutionLevel "admin"
 
 !define REPO_ROOT ".."
 !define INSTALLER_ICON "${REPO_ROOT}\installer-icon\installer.ico"
-
-Var DPINST_ARGS_RUNTIME
