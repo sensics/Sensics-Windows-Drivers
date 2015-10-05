@@ -43,7 +43,7 @@ Section -CDC_INF
   File "${REPO_ROOT}\Sensics-CDC\sensics_cdc.cat"
 
   ; DIFx/DPInst configuration file
-  File "${REPO_ROOT}\HDK-CDC-NSIS-Installer\dpinst.xml"
+  File "${REPO_ROOT}\Sensics-CDC-NSIS-Installer\dpinst.xml"
 
   File /oname=installer.ico "${INSTALLER_ICON}"
 
@@ -67,9 +67,9 @@ Section -CDC_INF
   ${Else}
     DetailPrint "Running 'DPInst' driver installation tool."
     ${If} ${RunningX64}
-      ExecWait '"$PLUGINSDIR\dpinst64.exe" $DPINST_ARGS_RUNTIME /PATH "$PLUGINSDIR"' $DPINST_RET
+      ExecWait '"$PLUGINSDIR\dpinst64.exe" $DPINST_ARGS_RUNTIME /PATH "$PLUGINSDIR\cdc"' $DPINST_RET
     ${Else}
-      ExecWait '"$PLUGINSDIR\dpinst32.exe" $DPINST_ARGS_RUNTIME /PATH "$PLUGINSDIR"' $DPINST_RET
+      ExecWait '"$PLUGINSDIR\dpinst32.exe" $DPINST_ARGS_RUNTIME /PATH "$PLUGINSDIR\cdc"' $DPINST_RET
     ${EndIf}
 
 
@@ -84,6 +84,7 @@ Section -CDC_INF
     ${Else}
       DetailPrint "Driver installation completed successfully."
       SetErrorLevel 0
+      SetAutoClose false
     ${EndIf}
 
   ${EndIf}
