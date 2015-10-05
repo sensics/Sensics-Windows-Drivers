@@ -37,10 +37,10 @@ Section -CDC_INF
   DetailPrint "Temporarily extracting driver inf and cat along with installation tool."
 
   ; CDC driver inf
-  File "${REPO_ROOT}\HDK-CDC\osvr_cdc.inf"
+  File "${REPO_ROOT}\Sensics-CDC\sensics_cdc.inf"
 
   ; Signed catalog file
-  File "${REPO_ROOT}\HDK-CDC\osvr_cdc.cat"
+  File "${REPO_ROOT}\Sensics-CDC\sensics_cdc.cat"
 
   ; DIFx/DPInst configuration file
   File "${REPO_ROOT}\HDK-CDC-NSIS-Installer\dpinst.xml"
