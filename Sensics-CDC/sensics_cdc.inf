@@ -100,7 +100,7 @@ AddReg=LowerFilterAddReg
 
 [Strings]
 Manufacturer = "Sensics, Inc."
-PackageDisplayName = "Sensics HMD Communication Ports"
+PackageDisplayName = "Sensics Professional HMD Communication Ports"
 zSight_CDC = "Sensics zSight HMD Communication Device"
 FILENAME = "sensics_cdc"
 
