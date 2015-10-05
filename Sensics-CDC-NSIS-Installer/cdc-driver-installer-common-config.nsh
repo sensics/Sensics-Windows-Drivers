@@ -1,7 +1,6 @@
-; Install wrapper for OSVR HMD controller CDC serial port inf
+; Install wrapper for Sensics HMD controller CDC serial port inf
 ; Common config code between silent and "normal" installer
 ;
-; Part of OSVR
 ; Authored by Sensics, Inc. <http://sensics.com/osvr>
 ;
 ; Copyright 2015 Sensics, Inc.
@@ -19,7 +18,7 @@
 ; limitations under the License.
 
 !define VERSION_TAG "v${DRIVER_VER}"
-!define PRODUCT_NAME "OSVR HMD CDC Driver"
+!define PRODUCT_NAME "Sensics HMD CDC Driver"
 !define PRODUCT_PUBLISHER "Sensics, Inc."
 SetCompressor lzma
 
@@ -31,6 +30,6 @@ InstallDir "$TEMP\${PRODUCT_PUBLISHER} ${PRODUCT_NAME}"
 RequestExecutionLevel "admin"
 
 !define REPO_ROOT ".."
-!define OSVR_INSTALLER_ICON "${REPO_ROOT}\installer-icon\installer.ico"
+!define INSTALLER_ICON "${REPO_ROOT}\installer-icon\installer.ico"
 
 Var DPINST_ARGS_RUNTIME

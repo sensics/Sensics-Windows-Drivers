@@ -1,7 +1,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; OSVR HMD controller CDC serial port inf
+; Sensics HMD controller CDC serial port inf
 ;
-; Part of OSVR
 ; Authored by Sensics, Inc. <http://sensics.com/osvr>
 ;
 ; Copyright 2015 Sensics, Inc.
@@ -38,7 +37,7 @@ DriverPackageType=PlugAndPlay
 DriverPackageDisplayName = %PackageDisplayName%
 
 [Manufacturer]
-%Manufacturer% = OSVRMfg, NTx86, NTamd64, NTia64, NTarm
+%Manufacturer% = SensicsMfg, NTx86, NTamd64, NTia64, NTarm
 
 [DestinationDirs]
 DefaultDestDir=12
@@ -47,31 +46,31 @@ DefaultDestDir=12
 ; "Models" sections
 
 ; This driver not needed on Windows 10 - in-box CDC driver/inf (usbser.inf) should work fine
-[OSVRMfg.NT.10]
+[SensicsMfg.NT.10]
 
-[OSVRMfg.NTx86.10]
+[SensicsMfg.NTx86.10]
 
-[OSVRMfg.NTia64.10]
+[SensicsMfg.NTia64.10]
 
-[OSVRMfg.NTamd64.10]
+[SensicsMfg.NTamd64.10]
 
-[OSVRMfg.NTarm.10]
+[SensicsMfg.NTarm.10]
 
 ; Windows 8.1 and below, all architectures
-[OSVRMfg.NT]
-%OSVR_HMD_CDC%=OSVR_HMD_CDC, USB\VID_1532&PID_0B00&MI_00
+[SensicsMfg.NT]
+%zSight_CDC%=Sensics_HMD_CDC, USB\VID_16D0&PID_0515&MI_00
 
-[OSVRMfg.NTx86]
-%OSVR_HMD_CDC%=OSVR_HMD_CDC, USB\VID_1532&PID_0B00&MI_00
+[SensicsMfg.NTx86]
+%zSight_CDC%=Sensics_HMD_CDC, USB\VID_16D0&PID_0515&MI_00
 
-[OSVRMfg.NTia64]
-%OSVR_HMD_CDC%=OSVR_HMD_CDC, USB\VID_1532&PID_0B00&MI_00
+[SensicsMfg.NTia64]
+%zSight_CDC%=Sensics_HMD_CDC, USB\VID_16D0&PID_0515&MI_00
 
-[OSVRMfg.NTamd64]
-%OSVR_HMD_CDC%=OSVR_HMD_CDC, USB\VID_1532&PID_0B00&MI_00
+[SensicsMfg.NTamd64]
+%zSight_CDC%=Sensics_HMD_CDC, USB\VID_16D0&PID_0515&MI_00
 
-[OSVRMfg.NTarm]
-%OSVR_HMD_CDC%=OSVR_HMD_CDC, USB\VID_1532&PID_0B00&MI_00
+[SensicsMfg.NTarm]
+%zSight_CDC%=Sensics_HMD_CDC, USB\VID_16D0&PID_0515&MI_00
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; "DDInstall" and related sections for CDC control port
@@ -80,18 +79,18 @@ DefaultDestDir=12
 ; and https://msdn.microsoft.com/en-us/library/ff542605(v=vs.85).aspx
 ;
 ; Some additions required.
-[OSVR_HMD_CDC.NT]
+[Sensics_HMD_CDC.NT]
 Include=mdmcpq.inf,msports.inf
 ;Needs=SerialEnumerator.NT ; serenum - appears to not be needed
 CopyFiles=FakeModemCopyFileSection
 AddReg=ComPort.NT.AddReg ; for MsPorts.dll,SerialPortPropPageProvider
 
-[OSVR_HMD_CDC.NT.Services]
+[Sensics_HMD_CDC.NT.Services]
 Include=mdmcpq.inf
 AddService=usbser, %ServiceFlags%, LowerFilter_Service_Inst
 ;Needs=SerialEnumerator.NT.Services ; serenum, add msports.inf to include
 
-[OSVR_HMD_CDC.NT.HW]
+[Sensics_HMD_CDC.NT.HW]
 Include=mdmcpq.inf
 ;Needs=ComPort.NT.HW ; serenum, add msports.inf to include
 AddReg=LowerFilterAddReg
@@ -101,9 +100,9 @@ AddReg=LowerFilterAddReg
 
 [Strings]
 Manufacturer = "Sensics, Inc."
-PackageDisplayName = "OSVR HMD Communication Port"
-OSVR_HMD_CDC = "OSVR HMD Communication Device"
-FILENAME = "osvr_cdc"
+PackageDisplayName = "Sensics HMD Communication Ports"
+zSight_CDC = "Sensics zSight HMD Communication Device"
+FILENAME = "sensics_cdc"
 
 ; non-localizable
 ; set as the default function driver for this device

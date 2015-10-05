@@ -4,7 +4,7 @@ This directory is for generating a (somewhat crude) installer icon in all the fo
 
 ## Sources
 
-The SVG contains the OSVG "block" logo, as well as the ["download" icon from FontAwesome](http://fortawesome.github.io/Font-Awesome/icon/download/) - specifically, via the split-out SVG available from <https://github.com/encharm/Font-Awesome-SVG-PNG/blob/master/black/svg/download.svg>
+The SVG contains the Sensics "favicon" logo, as well as the ["download" icon from FontAwesome](http://fortawesome.github.io/Font-Awesome/icon/download/) - specifically, via the split-out SVG available from <https://github.com/encharm/Font-Awesome-SVG-PNG/blob/master/black/svg/download.svg>
 
 ## Building
 
