@@ -30,10 +30,10 @@ InstallDir "$TEMP\${PRODUCT_PUBLISHER} ${PRODUCT_NAME}"
 RequestExecutionLevel "admin"
 
 !define REPO_ROOT ".."
-!define OSVR_INSTALLER_ICON "${REPO_ROOT}\installer-icon\installer.ico"
+!define INSTALLER_ICON "${REPO_ROOT}\installer-icon\installer.ico"
 
 
-OutFile "OSVR-HDK-Combined-Driver-Installer-${DRIVER_VER}.exe"
+OutFile "Sensics-HMD-Combined-Driver-Installer-${DRIVER_VER}.exe"
 
 ShowInstDetails show
 
@@ -43,7 +43,7 @@ ShowInstDetails show
 ; MUI Settings
 !define MUI_ABORTWARNING
 ;!define MUI_ICON "${NSISDIR}\Contrib\Graphics\Icons\modern-install.ico"
-!define MUI_ICON "${REPO_ROOT}\installer-icon\installer.ico"
+!define MUI_ICON "${INSTALLER_ICON}"
 
 ; Welcome page
 !insertmacro MUI_PAGE_WELCOME
@@ -59,6 +59,6 @@ ShowInstDetails show
 
 ; MUI end ------
 
-!include "${REPO_ROOT}\HDK-CDC-NSIS-Installer\cdc-driver-installer-common.nsh"
+!include "${REPO_ROOT}\CDC-NSIS-Installer\cdc-driver-installer-common.nsh"
 
 !include "${REPO_ROOT}\Metadata\DeviceMetadataSection.nsh"
