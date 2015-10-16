@@ -32,7 +32,7 @@ CatalogFile = %filename%.cat
 ;CatalogFile.NTamd64 = %filename%_amd64.cat
 ;CatalogFile.NTarm = %filename%_arm.cat
 
-DriverVer=10/05/2015,6.4.1.2
+DriverVer=10/08/2015,6.4.1.2
 DriverPackageType=PlugAndPlay
 DriverPackageDisplayName = %PackageDisplayName%
 
@@ -58,19 +58,24 @@ DefaultDestDir=12
 
 ; Windows 8.1 and below, all architectures
 [SensicsMfg.NT]
-%zSight_CDC%=Sensics_HMD_CDC, USB\VID_16D0&PID_0515&MI_00
+%zSight_CDC%=Sensics_CDC, USB\VID_16D0&PID_0515&MI_00
+%EmulatedDevices_CDC%=Sensics_CDC, USB\VID_16D0&PID_0678&MI_00
 
 [SensicsMfg.NTx86]
-%zSight_CDC%=Sensics_HMD_CDC, USB\VID_16D0&PID_0515&MI_00
+%zSight_CDC%=Sensics_CDC, USB\VID_16D0&PID_0515&MI_00
+%EmulatedDevices_CDC%=Sensics_CDC, USB\VID_16D0&PID_0678&MI_00
 
 [SensicsMfg.NTia64]
-%zSight_CDC%=Sensics_HMD_CDC, USB\VID_16D0&PID_0515&MI_00
+%zSight_CDC%=Sensics_CDC, USB\VID_16D0&PID_0515&MI_00
+%EmulatedDevices_CDC%=Sensics_CDC, USB\VID_16D0&PID_0678&MI_00
 
 [SensicsMfg.NTamd64]
-%zSight_CDC%=Sensics_HMD_CDC, USB\VID_16D0&PID_0515&MI_00
+%zSight_CDC%=Sensics_CDC, USB\VID_16D0&PID_0515&MI_00
+%EmulatedDevices_CDC%=Sensics_CDC, USB\VID_16D0&PID_0678&MI_00
 
 [SensicsMfg.NTarm]
-%zSight_CDC%=Sensics_HMD_CDC, USB\VID_16D0&PID_0515&MI_00
+%zSight_CDC%=Sensics_CDC, USB\VID_16D0&PID_0515&MI_00
+%EmulatedDevices_CDC%=Sensics_CDC, USB\VID_16D0&PID_0678&MI_00
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; "DDInstall" and related sections for CDC control port
@@ -79,20 +84,17 @@ DefaultDestDir=12
 ; and https://msdn.microsoft.com/en-us/library/ff542605(v=vs.85).aspx
 ;
 ; Some additions required.
-[Sensics_HMD_CDC.NT]
+[Sensics_CDC.NT]
 Include=mdmcpq.inf,msports.inf
-;Needs=SerialEnumerator.NT ; serenum - appears to not be needed
 CopyFiles=FakeModemCopyFileSection
 AddReg=ComPort.NT.AddReg ; for MsPorts.dll,SerialPortPropPageProvider
 
-[Sensics_HMD_CDC.NT.Services]
+[Sensics_CDC.NT.Services]
 Include=mdmcpq.inf
 AddService=usbser, %ServiceFlags%, LowerFilter_Service_Inst
-;Needs=SerialEnumerator.NT.Services ; serenum, add msports.inf to include
 
-[Sensics_HMD_CDC.NT.HW]
+[Sensics_CDC.NT.HW]
 Include=mdmcpq.inf
-;Needs=ComPort.NT.HW ; serenum, add msports.inf to include
 AddReg=LowerFilterAddReg
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -100,8 +102,9 @@ AddReg=LowerFilterAddReg
 
 [Strings]
 Manufacturer = "Sensics, Inc."
-PackageDisplayName = "Sensics Professional HMD Communication Ports"
-zSight_CDC = "Sensics zSight HMD Communication Device"
+PackageDisplayName = "Professional HMD and Emulated Devices Communication Ports"
+zSight_CDC = "Sensics zSight HMD Communication Port"
+EmulatedDevices_CDC = "Sensics Emulated Device Communication Port"
 FILENAME = "sensics_cdc"
 
 ; non-localizable
