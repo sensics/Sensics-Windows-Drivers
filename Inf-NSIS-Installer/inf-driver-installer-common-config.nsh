@@ -1,4 +1,4 @@
-; Install wrapper for Sensics HMD controller CDC serial port inf
+; Install wrapper for Sensics HMD controller CDC serial port + other infs
 ; Common config code between silent and "normal" installer
 ;
 ; Authored by Sensics, Inc. <http://sensics.com/osvr>
@@ -18,7 +18,7 @@
 ; limitations under the License.
 
 !define VERSION_TAG "v${DRIVER_VER}"
-!define PRODUCT_NAME "Sensics HMD CDC Driver"
+!define PRODUCT_NAME "Sensics HMD Driver"
 !define PRODUCT_PUBLISHER "Sensics, Inc."
 SetCompressor lzma
 

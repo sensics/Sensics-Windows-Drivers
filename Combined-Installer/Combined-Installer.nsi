@@ -18,7 +18,7 @@
 ; limitations under the License.
 
 !define VERSION_TAG "v${DRIVER_VER}"
-!define PRODUCT_NAME "OSVR HMD Driver and Device Metadata"
+!define PRODUCT_NAME "Sensics Drivers and Device Metadata"
 !define PRODUCT_PUBLISHER "Sensics, Inc."
 SetCompressor lzma
 
@@ -33,7 +33,7 @@ RequestExecutionLevel "admin"
 !define INSTALLER_ICON "${REPO_ROOT}\installer-icon\installer.ico"
 
 
-OutFile "Sensics-HMD-Combined-Driver-Installer-${DRIVER_VER}.exe"
+OutFile "Sensics-Combined-Driver-Installer-${DRIVER_VER}.exe"
 
 ShowInstDetails show
 
@@ -59,6 +59,6 @@ ShowInstDetails show
 
 ; MUI end ------
 
-!include "${REPO_ROOT}\CDC-NSIS-Installer\cdc-driver-installer-common.nsh"
+!include "${REPO_ROOT}\Inf-NSIS-Installer\inf-driver-installer-common.nsh"
 
 !include "${REPO_ROOT}\Metadata\DeviceMetadataSection.nsh"

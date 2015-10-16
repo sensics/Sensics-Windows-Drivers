@@ -1,4 +1,4 @@
-; Install wrapper for Sensics HMD controller CDC serial port inf
+; Install wrapper for Sensics HMD controller CDC serial port + other infs
 ;
 ; Authored by Sensics, Inc. <http://sensics.com/osvr>
 ;
@@ -17,9 +17,9 @@
 ; limitations under the License.
 
 ; Shared starting stuff
-!include "cdc-driver-installer-common-config.nsh"
+!include "inf-driver-installer-common-config.nsh"
 
-OutFile "Sensics-HMD-CDC-Driver-${VERSION_TAG}.exe"
+OutFile "Sensics-Inf-Drivers-${VERSION_TAG}.exe"
 
 ShowInstDetails hide
 AutoCloseWindow true
@@ -46,4 +46,4 @@ AutoCloseWindow true
 ; MUI end ------
 
 ; Shared ending stuff - the meat of the installer
-!include "cdc-driver-installer-common.nsh"
+!include "inf-driver-installer-common.nsh"
