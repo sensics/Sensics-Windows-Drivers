@@ -1,4 +1,4 @@
-; Install wrapper for OSVR HMD combined CDC and device metadata installer
+; Install wrapper for Sensics combined CDC and device metadata installer
 ;
 ; Part of OSVR
 ; Authored by Sensics, Inc. <http://sensics.com/osvr>
@@ -18,7 +18,7 @@
 ; limitations under the License.
 
 !define VERSION_TAG "v${DRIVER_VER}"
-!define PRODUCT_NAME "Sensics Drivers and Device Metadata"
+!define PRODUCT_NAME "Sensics Drivers"
 !define PRODUCT_PUBLISHER "Sensics, Inc."
 SetCompressor lzma
 
@@ -60,5 +60,6 @@ ShowInstDetails show
 ; MUI end ------
 
 !include "${REPO_ROOT}\Inf-NSIS-Installer\inf-driver-installer-common.nsh"
+!include "${REPO_ROOT}\force-install\ForceInstallSection.nsh"
 
-!include "${REPO_ROOT}\Metadata\DeviceMetadataSection.nsh"
+;!include "${REPO_ROOT}\Metadata\DeviceMetadataSection.nsh"
