@@ -32,6 +32,10 @@ Var DPINST_ARGS_RUNTIME
 
 !define CDC_DRIVER_NAME sensics_cdc
 
+
+!define ATMEL_USB_DFU_DIR atmel_usb_dfu
+!define ATMEL_USB_DFU_SRC ${REPO_ROOT}\vendor\${ATMEL_USB_DFU_DIR}
+
 Section -CDC_INF
   Var /GLOBAL DPINST_RET
   !define INF_DIR $PLUGINSDIR\cdc
@@ -51,6 +55,28 @@ Section -CDC_INF
     File "${INF_SRC_DIR}\${CDC_DRIVER_NAME}.cat"
   ${EndIf}
 
+
+  ; Atmel USB DFU driver
+  DetailPrint "Atmel DFU firmware upgrade interface driver:"
+  SetOutPath "${INF_DIR}\${ATMEL_USB_DFU_DIR}"
+  File "${ATMEL_USB_DFU_SRC}\README.txt"
+  File "${ATMEL_USB_DFU_SRC}\COPYING_GPL.txt"
+  File "${ATMEL_USB_DFU_SRC}\atmel_usb_dfu.inf"
+  File "${ATMEL_USB_DFU_SRC}\atmel_usb_dfu.cat"
+
+  SetOutPath "${INF_DIR}\${ATMEL_USB_DFU_DIR}\x86"
+  File "${ATMEL_USB_DFU_SRC}\x86\libusb0.sys"
+  File "${ATMEL_USB_DFU_SRC}\x86\libusb0_x86.dll"
+
+  SetOutPath "${INF_DIR}\${ATMEL_USB_DFU_DIR}\amd64"
+  File "${ATMEL_USB_DFU_SRC}\amd64\libusb0.sys"
+  File "${ATMEL_USB_DFU_SRC}\amd64\libusb0.dll"
+
+  SetOutPath "${INF_DIR}\${ATMEL_USB_DFU_DIR}\ia64"
+  File "${ATMEL_USB_DFU_SRC}\ia64\libusb0.sys"
+  File "${ATMEL_USB_DFU_SRC}\ia64\libusb0.dll"
+
+  SetOutPath "${INF_DIR}"
 
   DetailPrint "Driver installer support files:"
   ; DIFx/DPInst configuration file
@@ -82,8 +108,9 @@ Section -CDC_INF
 
   DetailPrint "'DPInst' completed with exit code $DPINST_RET"
 
-  ; 1024 is 3(?) drivers copied to the driver store, or any combination of up to 3 successes.
-  ${If} $DPINST_RET U> 1024
+  ; This is the maximum value to not have any failures reported (0x0000FFFF)
+  ; https://msdn.microsoft.com/en-us/library/windows/hardware/ff544790(v=vs.85).aspx
+  ${If} $DPINST_RET U> 65535
     DetailPrint "DPInst returned a value indicating a driver failed to install: $DPINST_RET"
     SetErrorLevel $DPINST_RET
     SetDetailsView show
