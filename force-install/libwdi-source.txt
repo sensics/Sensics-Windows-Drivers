@@ -1,0 +1,3 @@
+Uses the Sensics branch of libwdi (which was extended to include USB CDC drivers).
+
+libwdi is used subject to the LGPL v3. Source available at: https://github.com/sensics/libwdi/tree/updated

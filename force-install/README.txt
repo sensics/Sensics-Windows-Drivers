@@ -1,0 +1,1 @@
+Includes support for old-firmware OSVR HDK and Sensics Galileo. Built 3/7/2016 by Ryan Pavlik.
