@@ -49,39 +49,48 @@ DefaultDestDir=12
 ; but wrapping it for naming purposes.
 [SensicsMfg.NTx86.10]
 %zSight_CDC%=Sensics_CDC_10, USB\VID_16D0&PID_0515&MI_00
+%dSight_CDC%=Sensics_CDC_10, USB\VID_16D0&PID_0676&MI_00
 %EmulatedDevices_CDC%=Sensics_CDC_10, USB\VID_16D0&PID_0678&MI_00
 
 [SensicsMfg.NTia64.10]
 %zSight_CDC%=Sensics_CDC_10, USB\VID_16D0&PID_0515&MI_00
+%dSight_CDC%=Sensics_CDC_10, USB\VID_16D0&PID_0676&MI_00
 %EmulatedDevices_CDC%=Sensics_CDC_10, USB\VID_16D0&PID_0678&MI_00
 
 [SensicsMfg.NTamd64.10]
 %zSight_CDC%=Sensics_CDC_10, USB\VID_16D0&PID_0515&MI_00
+%dSight_CDC%=Sensics_CDC_10, USB\VID_16D0&PID_0676&MI_00
 %EmulatedDevices_CDC%=Sensics_CDC_10, USB\VID_16D0&PID_0678&MI_00
 
 [SensicsMfg.NTarm.10]
 %zSight_CDC%=Sensics_CDC_10, USB\VID_16D0&PID_0515&MI_00
+%dSight_CDC%=Sensics_CDC_10, USB\VID_16D0&PID_0676&MI_00
 %EmulatedDevices_CDC%=Sensics_CDC_10, USB\VID_16D0&PID_0678&MI_00
 
 ; Windows 8.1 and below, all architectures
 [SensicsMfg.NT]
 %zSight_CDC%=Sensics_CDC, USB\VID_16D0&PID_0515&MI_00
+%dSight_CDC%=Sensics_CDC, USB\VID_16D0&PID_0676&MI_00
 %EmulatedDevices_CDC%=Sensics_CDC, USB\VID_16D0&PID_0678&MI_00
 
 [SensicsMfg.NTx86]
 %zSight_CDC%=Sensics_CDC, USB\VID_16D0&PID_0515&MI_00
+%dSight_CDC%=Sensics_CDC, USB\VID_16D0&PID_0676&MI_00
 %EmulatedDevices_CDC%=Sensics_CDC, USB\VID_16D0&PID_0678&MI_00
 
 [SensicsMfg.NTia64]
 %zSight_CDC%=Sensics_CDC, USB\VID_16D0&PID_0515&MI_00
+%dSight_CDC%=Sensics_CDC, USB\VID_16D0&PID_0676&MI_00
 %EmulatedDevices_CDC%=Sensics_CDC, USB\VID_16D0&PID_0678&MI_00
 
 [SensicsMfg.NTamd64]
 %zSight_CDC%=Sensics_CDC, USB\VID_16D0&PID_0515&MI_00
+%dSight_CDC%=Sensics_CDC, USB\VID_16D0&PID_0676&MI_00
 %EmulatedDevices_CDC%=Sensics_CDC, USB\VID_16D0&PID_0678&MI_00
 
 [SensicsMfg.NTarm]
 %zSight_CDC%=Sensics_CDC, USB\VID_16D0&PID_0515&MI_00
+%dSight_CDC%=Sensics_CDC, USB\VID_16D0&PID_0676&MI_00
 %EmulatedDevices_CDC%=Sensics_CDC, USB\VID_16D0&PID_0678&MI_00
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -127,6 +136,7 @@ Needs=UsbSerial_Install.Hw
 Manufacturer = "Sensics, Inc."
 PackageDisplayName = "Professional HMD and Emulated Devices Communication Ports"
 zSight_CDC = "Sensics zSight HMD Communication Port"
+dSight_CDC = "Sensics dSight HMD Communication Port"
 EmulatedDevices_CDC = "Sensics Emulated Device Communication Port"
 FILENAME = "sensics_cdc"
 
