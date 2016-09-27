@@ -1,0 +1,87 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Sensics Display Inf
+;
+; Authored by Sensics, Inc. <http://sensics.com/osvr>
+;
+; Copyright 2015-2016 Sensics, Inc.
+;
+; Licensed under the Apache License, Version 2.0 (the "License");
+; you may not use this file except in compliance with the License.
+; You may obtain a copy of the License at
+;
+; 	http://www.apache.org/licenses/LICENSE-2.0
+;
+; Unless required by applicable law or agreed to in writing, software
+; distributed under the License is distributed on an "AS IS" BASIS,
+; WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+; See the License for the specific language governing permissions and
+; limitations under the License.
+
+[Version]
+Signature="$Windows NT$"
+Class       = Monitor
+ClassGuid   = {4D36E96E-E325-11CE-BFC1-08002BE10318}
+
+Provider    = %Manufacturer%
+CatalogFile = %filename%.cat
+
+; Files do not differ between arches (using an in-box driver)
+; so only a single cat is needed.
+;CatalogFile.NTx86 = %filename%_x86.cat
+;CatalogFile.NTia64 = %filename%_ia64.cat
+;CatalogFile.NTamd64 = %filename%_amd64.cat
+;CatalogFile.NTarm = %filename%_arm.cat
+
+DriverVer=09/27/2016,1.1.2.8
+DriverPackageType=PlugAndPlay
+DriverPackageDisplayName = %PackageDisplayName%
+
+[ControlFlags]
+ExcludeFromSelect=* ; Only auto-matching-install is fine, just a "naming" driver.
+
+[Manufacturer]
+%Manufacturer% = SensicsMfg, NTamd64, NTia64, NTarm
+
+;;;;;;;;;;;;;;;;;;;
+; "Models" sections
+
+; arch decoration on this section to appease infverif warning
+[SensicsMfg.NTx86]
+%SEN.1019.Desc%=SENSICS_DISPLAY, MONITOR\SEN1019
+%SVR.1019.Desc%=SENSICS_DISPLAY, MONITOR\SVR1019
+
+[SensicsMfg.NTia64]
+%SEN.1019.Desc%=SENSICS_DISPLAY, MONITOR\SEN1019
+%SVR.1019.Desc%=SENSICS_DISPLAY, MONITOR\SVR1019
+
+[SensicsMfg.NTamd64]
+%SEN.1019.Desc%=SENSICS_DISPLAY, MONITOR\SEN1019
+%SVR.1019.Desc%=SENSICS_DISPLAY, MONITOR\SVR1019
+
+[SensicsMfg.NTarm]
+%SEN.1019.Desc%=SENSICS_DISPLAY, MONITOR\SEN1019
+%SVR.1019.Desc%=SENSICS_DISPLAY, MONITOR\SVR1019
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; "DDInstall" and related sections
+[SENSICS_DISPLAY]
+AddReg      = SENSICS_DISPLAY.AddReg
+
+[SENSICS_DISPLAY.AddReg]
+; Empty, dummy section to silence warnings.
+
+;;;;;;;;;;;;;;;;;;;;;;;;;
+; Strings (and constants)
+
+[Strings]
+Manufacturer = "Sensics, Inc."
+
+PackageDisplayName = "Sensics Display Interface"
+
+SEN.1019.Desc = "Sensics Display"
+SVR.1019.Desc = "Sensics Display"
+
+FILENAME = "sensics_display"
+
+; constant - non-localizable
+REG_DWORD   = 0x10001
