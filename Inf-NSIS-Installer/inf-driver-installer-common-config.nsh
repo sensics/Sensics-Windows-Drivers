@@ -18,7 +18,7 @@
 ; limitations under the License.
 
 !define VERSION_TAG "v${DRIVER_VER}"
-!define PRODUCT_NAME "Sensics HMD Driver"
+!define PRODUCT_NAME "Sensics Inf Drivers"
 !define PRODUCT_PUBLISHER "Sensics, Inc."
 SetCompressor lzma
 

@@ -31,10 +31,12 @@ ManifestSupportedOS WinVista Win7 Win8 {8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}
 Var DPINST_ARGS_RUNTIME
 
 !define CDC_DRIVER_NAME sensics_cdc
+!define DISPLAY_DRIVER_NAME sensics_display
 
 
 !define ATMEL_USB_DFU_DIR atmel_usb_dfu
 !define ATMEL_USB_DFU_SRC ${REPO_ROOT}\vendor\${ATMEL_USB_DFU_DIR}
+
 
 Section -CDC_INF
   Var /GLOBAL DPINST_RET
@@ -44,17 +46,15 @@ Section -CDC_INF
   SetOutPath "${INF_DIR}"
   DetailPrint "Temporarily extracting driver infs and cat along with installation tool."
 
-  ${If} ${AtLeastWin10}
-    DetailPrint "Windows 10 does not need USB-CDC driver installed."
-    SetDetailsView show
-    SetAutoClose false
-  ${Else}
   ; CDC driver inf + signed catalog file
     DetailPrint "USB-CDC driver:"
     File "${INF_SRC_DIR}\${CDC_DRIVER_NAME}.inf"
     File "${INF_SRC_DIR}\${CDC_DRIVER_NAME}.cat"
-  ${EndIf}
 
+  ; Nearly-dummy display driver inf + signed catalog file
+  DetailPrint "Display interface driver:"
+  File "${INF_SRC_DIR}\${DISPLAY_DRIVER_NAME}.inf"
+  File "${INF_SRC_DIR}\${DISPLAY_DRIVER_NAME}.cat"
 
   ; Atmel USB DFU driver
   DetailPrint "Atmel DFU firmware upgrade interface driver:"
