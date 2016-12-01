@@ -45,27 +45,29 @@ DefaultDestDir=12
 ;;;;;;;;;;;;;;;;;;;
 ; "Models" sections
 
-; This driver not needed on Windows 10 - in-box CDC driver/inf (usbser.inf) should work fine,
-; but wrapping it for naming purposes.
+; This driver not strictly needed on Windows 10 - in-box CDC class driver/inf
+; (usbser.inf) works fine, but wrapping it for naming purposes.
+
+; Note that right now we are using the same DDInstall section as pre-Win10 here.
 [SensicsMfg.NTx86.10]
-%zSight_CDC%=Sensics_CDC_10, USB\VID_16D0&PID_0515&MI_00
-%dSight_CDC%=Sensics_CDC_10, USB\VID_16D0&PID_0676&MI_00
-%EmulatedDevices_CDC%=Sensics_CDC_10, USB\VID_16D0&PID_0678&MI_00
+%zSight_CDC%=Sensics_CDC, USB\VID_16D0&PID_0515&MI_00
+%dSight_CDC%=Sensics_CDC, USB\VID_16D0&PID_0676&MI_00
+%EmulatedDevices_CDC%=Sensics_CDC, USB\VID_16D0&PID_0678&MI_00
 
 [SensicsMfg.NTia64.10]
-%zSight_CDC%=Sensics_CDC_10, USB\VID_16D0&PID_0515&MI_00
-%dSight_CDC%=Sensics_CDC_10, USB\VID_16D0&PID_0676&MI_00
-%EmulatedDevices_CDC%=Sensics_CDC_10, USB\VID_16D0&PID_0678&MI_00
+%zSight_CDC%=Sensics_CDC, USB\VID_16D0&PID_0515&MI_00
+%dSight_CDC%=Sensics_CDC, USB\VID_16D0&PID_0676&MI_00
+%EmulatedDevices_CDC%=Sensics_CDC, USB\VID_16D0&PID_0678&MI_00
 
 [SensicsMfg.NTamd64.10]
-%zSight_CDC%=Sensics_CDC_10, USB\VID_16D0&PID_0515&MI_00
-%dSight_CDC%=Sensics_CDC_10, USB\VID_16D0&PID_0676&MI_00
-%EmulatedDevices_CDC%=Sensics_CDC_10, USB\VID_16D0&PID_0678&MI_00
+%zSight_CDC%=Sensics_CDC, USB\VID_16D0&PID_0515&MI_00
+%dSight_CDC%=Sensics_CDC, USB\VID_16D0&PID_0676&MI_00
+%EmulatedDevices_CDC%=Sensics_CDC, USB\VID_16D0&PID_0678&MI_00
 
 [SensicsMfg.NTarm.10]
-%zSight_CDC%=Sensics_CDC_10, USB\VID_16D0&PID_0515&MI_00
-%dSight_CDC%=Sensics_CDC_10, USB\VID_16D0&PID_0676&MI_00
-%EmulatedDevices_CDC%=Sensics_CDC_10, USB\VID_16D0&PID_0678&MI_00
+%zSight_CDC%=Sensics_CDC, USB\VID_16D0&PID_0515&MI_00
+%dSight_CDC%=Sensics_CDC, USB\VID_16D0&PID_0676&MI_00
+%EmulatedDevices_CDC%=Sensics_CDC, USB\VID_16D0&PID_0678&MI_00
 
 ; Windows 8.1 and below, all architectures
 [SensicsMfg.NT]
@@ -114,20 +116,27 @@ Include=mdmcpq.inf
 AddReg=LowerFilterAddReg
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Sensics_CDC_10
 ; "DDInstall" and related sections for CDC control port
-; on Windows 10 re-using the usbser.inf provided driver,
+; For Windows 10 re-using the usbser.inf provided driver,
 ; as advised in the comments of the Windows 10 mdmcpq.inf
-[Sensics_CDC_10.NT]
-Include=usbser.inf
-Needs=UsbSerial_Install
+;
+; TODO: Actually using these did not appear to work (Device Manager errors)
+; in earlier testing, hence they are commented out, and the
+; "legacy"/"compatibility" way (as so deemed by Windows 10 mdmcpq.inf)
+; is used instead.
 
-[Sensics_CDC_10.NT.Services]
-Include=usbser.inf
-Needs=UsbSerial_Install.Services
-
-[Sensics_CDC_10.NT.HW]
-Include=usbser.inf
-Needs=UsbSerial_Install.Hw
+; [Sensics_CDC_10.NT]
+; Include=usbser.inf
+; Needs=UsbSerial_Install
+;
+; [Sensics_CDC_10.NT.Services]
+; Include=usbser.inf
+; Needs=UsbSerial_Install.Services
+;
+; [Sensics_CDC_10.NT.HW]
+; Include=usbser.inf
+; Needs=UsbSerial_Install.Hw
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Strings (and constants)
