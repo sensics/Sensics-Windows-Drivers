@@ -77,11 +77,6 @@ DriverPackageDisplayName = %PackageDisplayName%
 %EmulatedDevices_CDC%=Sensics_CDC, USB\VID_16D0&PID_0678&MI_00
 
 ; Windows 8.1 and below, all architectures
-[SensicsMfg.NT]
-%zSight_CDC%=Sensics_CDC, USB\VID_16D0&PID_0515&MI_00
-%dSight_CDC%=Sensics_CDC, USB\VID_16D0&PID_0676&MI_00
-%EmulatedDevices_CDC%=Sensics_CDC, USB\VID_16D0&PID_0678&MI_00
-
 [SensicsMfg.NTx86]
 %zSight_CDC%=Sensics_CDC, USB\VID_16D0&PID_0515&MI_00
 %dSight_CDC%=Sensics_CDC, USB\VID_16D0&PID_0676&MI_00
