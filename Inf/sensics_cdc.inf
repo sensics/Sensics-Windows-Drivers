@@ -36,11 +36,18 @@ DriverVer=09/27/2016,10.1.2.3
 DriverPackageType=PlugAndPlay
 DriverPackageDisplayName = %PackageDisplayName%
 
+[SourceDisksNames]
+; present for validation purposes only
+
+[SourceDisksFiles]
+; present for validation purposes only
+
+[DestinationDirs]
+; present for validation purposes only
+
 [Manufacturer]
 %Manufacturer% = SensicsMfg, NTx86, NTamd64, NTia64, NTarm, NTx86.10, NTamd64.10, NTia64.10, NTarm.10
 
-[DestinationDirs]
-DefaultDestDir=12
 
 ;;;;;;;;;;;;;;;;;;;
 ; "Models" sections
@@ -101,7 +108,7 @@ DefaultDestDir=12
 ; As recommended at https://support.microsoft.com/en-us/kb/837637
 ; and https://msdn.microsoft.com/en-us/library/ff542605(v=vs.85).aspx
 ;
-; Some additions required.
+; Some additions were required.
 [Sensics_CDC.NT]
 Include=mdmcpq.inf,msports.inf
 CopyFiles=FakeModemCopyFileSection
